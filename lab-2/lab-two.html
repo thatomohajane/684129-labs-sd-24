@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* Flexbox layout styles */
+    .flex-container {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      background: white;
+    }
+
+    .flex-container-bottom {
+      display: flex;
+      justify-content: center; /* Center the items horizontally */
+      padding: 0;
+      margin-top: 10px;
+      list-style: none;
+    }
+
+    .flex-item {
+      background: white;
+      padding: 0;
+      width: 45%;
+      height: auto; /* Adjusted to accommodate variable content */
+      line-height: 0;
+      color: black; /* Changed text color to black */
+      font-weight: bold;
+      text-align: center;
+      display: flex; /* Added flex display to align content vertically */
+      flex-direction: column; /* Set flex direction to column */
+    }
+
+    .flex-item h2,
+    .flex-item p {
+      text-align: center;
+      margin: 0;
+    }
+
+    .flex-item img {
+      width: 600px;
+      height: 400px;
+      object-fit: cover;
+      margin-top: auto; /* Push the image to the bottom */
+    }
+
+    /* Navigation styles */
+    .navigation {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between; /* Spaced between far left and far right */
+      font-size: 1.0em;
+      line-height: 1.2;
+      padding: 0 10px; /* Add padding to create space between the edges and items */
+    }
+
+    .navigation li {
+      margin: 0; /* Reset margin for all list items */
+    }
+
+    .navigation li:first-child {
+      margin-right: auto; /* Move first item to the left */
+    }
+
+    .navigation li:last-child {
+      margin-left: auto; /* Move last item to the right */
+    }
+
+    .navigation li:nth-last-child(-n+3) {
+      margin-left: 20px; /* Add margin to the last 3 items to bring them closer */
+    }
+
+    .flex-item p {
+      font-size: 0.5em;
+      line-height: 1.2;
+      margin-top: 5px;
+    }
+
+    /* Adjust columns for h2 and p */
+    .flex-item > * {
+      flex: 1 1 auto;
+    }
+  </style>
+</head>
+<body>
+  <ul class="navigation">
+    <li><a href="#">Welcome to Software Design Website</a></li>
+    <li><a href="#">About Us</a></li>
+    <li><a href="#">Services</a></li>
+    <li><a href="#">Contact Us</a></li>
+  </ul>
+
+  <ul class="flex-container">
+    <li class="flex-item">
+      <h2><a href="#">About Us</a></h2>
+      <p style="color: black">We are a company dedicated to deliver excellent services to our client</p>
+      <img src="1.jpg">
+    </li>
+  </ul>
+  
+  <ul class="flex-container">
+      <h2 style="color: black">Our Services</h2>
+  </ul>
+
+  <ul class="flex-container-bottom">
+    <li class="flex-item">
+      <h2>Web Development</h2>
+      <p style="color: black">We specialize in creating responsive and user-friendly websites</p>
+      <img src="2.jpg">
+    </li>
+    <li class="flex-item">
+      <h2>Graphic Design</h2>
+      <p style="color: black">Our talented designers can bring to life with your stunning visuals</p>
+      <img src="3.jpg">
+    </li>
+  </ul>
+
+  <ul class="navigation">
+    <li><a href="#">Copyright Reserved</a></li>
+  </ul>
+</body>
+</html>
