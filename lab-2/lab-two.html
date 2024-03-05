@@ -1,136 +1,148 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <style>
-    .flex-container {
-      display: flex;
-      flex-flow: column nowrap;
-      justify-content: center;
-      align-items: center;
-      list-style: none;
-      background: white;
-    }
+ <style>
+  .flex-container {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: center;
+   list-style: none;
+   background: white;
+   min-height: 100vh;
+  }
 
-    .flex-container-bottom {
-      display: flex;
-      flex-flow: row nowrap;
-      justify-content: center;
-      margin-top: 10px;
-      list-style: none;
-    }
+  .flex-container-bottom {
+   display: flex;
+   flex-flow: row nowrap;
+   justify-content: center;
+   margin-top: 10px;
+   list-style: none;
+  }
 
-    .flex-item {
-      background: white;
-      width: 400px; 
-      height: 600px;
-      line-height: 0px;
-      color: white;
-      text-align: center;
-    }
+  .flex-item {
+   background: white;
+   width: 400px; 
+   height: 600px;
+   line-height: 0px;
+   color: white;
+   text-align: center;
+   margin-bottom: 20px;
+  }
 
-    .flex-item h2 {
-      text-align: center;
-      margin: 0;
-    }
+  .flex-item h2 {
+   text-align: center;
+   margin: 0;
+  }
 
-    .flex-item p {
-      font-size: 1.0em;
-      height: 50px;
-      line-height: 50px;
-      margin-top: 0px;
-      overflow: hidden; /* Hide text overflow */
-    }
+  .flex-item p {
+   font-size: 1.0em;
+   height: 50px;
+   line-height: 50px;
+   margin-top: 0px;
+   overflow: hidden; /* Hide text overflow */
+  }
 
-    .navigation {
-      display: flex;
-      flex-flow: row wrap;
-      justify-content: center;
-      list-style: none;
-      margin: 0;
-      background: black;
-    }
+  .navigation {
+   display: flex;
+   flex-flow: row wrap;
+   justify-content: center;
+   list-style: none;
+   margin: 0;
+   background: black;
+  }
 
-    .navigation a {
-      text-decoration: none;
-      display: block;
-      padding: 1em;
-      color: white;
-    }
+  .navigation a {
+   text-decoration: none;
+   display: block;
+   padding: 1em;
+   color: white;
+  }
 
-    .navigation li {
-      margin: 0;
-    }
+  .navigation li {
+   margin: 0;
+  }
 
-    .navigation li:first-child {
-      margin-right: auto;
-    }
+  .navigation li:first-child {
+   margin-right: auto;
+  }
 
-    .navigation li:last-child {
-      margin-left: auto;
-    }
+  .navigation li:last-child {
+   margin-left: auto;
+  }
 
-    .navigation li:nth-last-child(-n+3) {
-      margin-left: 20px;
-    }
+  .navigation li:nth-last-child(-n+3) {
+   margin-left: 20px;
+  }
 
-    .navigation-footer {
-      display: flex;
-      flex-flow: row wrap;
-      justify-content: center;
-      list-style: none;
-      margin: 0;
-      background: black;
-    }
+  .navigation-footer {
+   display: flex;
+   flex-flow: row wrap;
+   justify-content: center;
+   list-style: none;
+   margin: 0;
+   background: black;
+   bottom: 0;
+   width: 100%;
+   height: 50px; 
+  }
 
-    .navigation-footer a {
-      text-decoration: none;
-      display: block;
-      padding: 1em;
-      color: white;
-    }
-    
-    img {
-      width: 100%; 
-      height: auto;
-    }
-    
-  </style>
+  .navigation-footer a {
+   text-decoration: none;
+   display: block;
+   padding: 1em;
+   color: white;
+  }
+   
+  img {
+   width: 100%; 
+   height: auto;
+  }
+
+  section {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   margin-top: 20px;
+  }
+   
+ </style>
 </head>
 <body>
-  <ul class="navigation">
-    <li><a href="#">Welcome to Software Design Website</a></li>
-    <li><a href="#">About Us</a></li>
-    <li><a href="#">Services</a></li>
-    <li><a href="#">Contact Us</a></li>
-  </ul>
+ <ul class="navigation">
+  <li><a href="#">Welcome to Software Design Website</a></li>
+  <li><a href="#">About Us</a></li>
+  <li><a href="#">Services</a></li>
+  <li><a href="#">Contact Us</a></li>
+ </ul>
 
-  <ul class="flex-container">
-    <li class="flex-item">
-      <h2 style="color: black">About Us</h2>
-      <p style="color: black">We are a company dedicated to deliver excellent services to our clients.</p>
-      <img src="1.jpeg">
-    </li>
-  </ul>
+ <ul class="flex-container">
+  <li class="flex-item">
+   <h2 style="color: black">About Us</h2>
+   <p style="color: black">We are a company dedicated to deliver excellent services to our clients.</p>
+   <img src="1.jpeg">
+  </li>
+ </ul>
 
-  <ul class="flex-container">
-      <h2 style="color: black">Our Services</h2>
-  </ul>
-
+ <section>
+  <h2>Our Services</h2>
   <ul class="flex-container-bottom">
-    <li class="flex-item">
-      <h2 style="color: black">Web Development</h2>
-      <p style="color: black">We specialize in creating responsive and user-friendly websites.</p>
-      <img src="2.jpeg">
-    </li>
-    <li class="flex-item">
-      <h2 style="color: black">Graphic Design</h2>
-      <p style="color: black">Our talented designers can bring to life your stunning visuals.</p>
-      <img src="3.jpeg">
-    </li>
+   <li class="flex-item">
+    <h2 style="color: black">Web Development</h2>
+    <p style="color: black">We specialize in creating responsive and user-friendly websites</p>
+    <img src="2.jpeg">
+   </li>
+   <li class="flex-item">
+    <h2 style="color: black">Graphic Design</h2>
+    <p style="color: black">Our talented designers can bring to life with your stunning visuals</p>
+    <img src="3.jpeg">
+   </li>
   </ul>
+ </section>
 
-  <ul class="navigation-footer">
-    <li><a href="#">Copyright Reserved</a></li>
-  </ul>
+ <ul class="navigation-footer">
+  <li><a href="#">Copyright Reserved</a></li>
+ </ul>
 </body>
 </html>
