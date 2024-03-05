@@ -8,83 +8,89 @@
       flex-flow: column nowrap;
       justify-content: center;
       align-items: center;
-      padding: 0;
-      margin: 0;
       list-style: none;
       background: white;
     }
 
     .flex-container-bottom {
       display: flex;
-      justify-content: center; /* Center the items horizontally */
-      padding: 0;
+      flex-flow: row nowrap;
+      justify-content: center;
       margin-top: 10px;
       list-style: none;
     }
 
     .flex-item {
       background: white;
-      padding: 0;
-      width: 45%;
-      height: auto; /* Adjusted to accommodate variable content */
-      line-height: 0;
-      color: black; /* Changed text color to black */
-      font-weight: bold;
-      text-align: center;
-      display: flex; /* Added flex display to align content vertically */
-      flex-direction: column; /* Set flex direction to column */
+      width: 600px;
+      height: 400px;
+      line-height: 0px;
+      color: white;
+      text-align: center; 
     }
 
-    .flex-item h2,
-    .flex-item p {
+    .flex-item h2 {
       text-align: center;
       margin: 0;
     }
-
-    .flex-item img {
-      width: 600px;
-      height: 400px;
-      object-fit: cover;
-      margin-top: auto; /* Push the image to the bottom */
+    
+    .flex-item p {
+      font-size: 1.0em;
+      line-height: 50px;
+      margin-top: 0px;
     }
 
     /* Navigation styles */
     .navigation {
       display: flex;
       flex-flow: row wrap;
-      justify-content: space-between; /* Spaced between far left and far right */
-      font-size: 1.0em;
-      line-height: 1.2;
-      padding: 0 10px; /* Add padding to create space between the edges and items */
+      justify-content: center;
+      list-style: none;
+      margin: 0;
+      background: black;
+    }
+    
+     .navigation a {
+      text-decoration: none;
+      display: block;
+      padding: 1em;
+      color: white;
     }
 
     .navigation li {
-      margin: 0; /* Reset margin for all list items */
+      margin: 0; /
     }
 
     .navigation li:first-child {
-      margin-right: auto; /* Move first item to the left */
+      margin-right: auto; 
     }
 
     .navigation li:last-child {
-      margin-left: auto; /* Move last item to the right */
+      margin-left: auto; 
     }
 
     .navigation li:nth-last-child(-n+3) {
-      margin-left: 20px; /* Add margin to the last 3 items to bring them closer */
+      margin-left: 20px; 
     }
 
-    .flex-item p {
-      font-size: 0.5em;
-      line-height: 1.2;
-      margin-top: 5px;
+    .navigation-footer {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      list-style: none;
+      margin: 0;
+      background: black;
     }
-
-    /* Adjust columns for h2 and p */
-    .flex-item > * {
-      flex: 1 1 auto;
+    
+     .navigation-footer a {
+      text-decoration: none;
+      display: block;
+      padding: 1em;
+      color: white;
     }
+    
   </style>
+  
 </head>
 <body>
   <ul class="navigation">
@@ -96,7 +102,7 @@
 
   <ul class="flex-container">
     <li class="flex-item">
-      <h2><a href="#">About Us</a></h2>
+      <h2 style="color: black">About Us</h2>
       <p style="color: black">We are a company dedicated to deliver excellent services to our client</p>
       <img src="1.jpeg">
     </li>
@@ -108,18 +114,18 @@
 
   <ul class="flex-container-bottom">
     <li class="flex-item">
-      <h2>Web Development</h2>
+      <h2 style="color: black">Web Development</h2>
       <p style="color: black">We specialize in creating responsive and user-friendly websites</p>
       <img src="2.jpeg">
     </li>
     <li class="flex-item">
-      <h2>Graphic Design</h2>
+      <h2 style="color: black">Graphic Design</h2>
       <p style="color: black">Our talented designers can bring to life with your stunning visuals</p>
       <img src="3.jpeg">
     </li>
   </ul>
 
-  <ul class="navigation">
+  <ul class="navigation-footer">
     <li><a href="#">Copyright Reserved</a></li>
   </ul>
 </body>
