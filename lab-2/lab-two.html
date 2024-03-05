@@ -21,22 +21,24 @@
 
     .flex-item {
       background: white;
-      width: 400px;
+      width: 400px; 
       height: 600px;
       line-height: 0px;
       color: white;
-      text-align: center; 
+      text-align: center;
     }
 
     .flex-item h2 {
       text-align: center;
       margin: 0;
     }
-    
+
     .flex-item p {
       font-size: 1.0em;
+      height: 50px;
       line-height: 50px;
       margin-top: 0px;
+      overflow: hidden; /* Hide text overflow */
     }
 
     .navigation {
@@ -47,8 +49,8 @@
       margin: 0;
       background: black;
     }
-    
-     .navigation a {
+
+    .navigation a {
       text-decoration: none;
       display: block;
       padding: 1em;
@@ -56,19 +58,19 @@
     }
 
     .navigation li {
-      margin: 0; /
+      margin: 0;
     }
 
     .navigation li:first-child {
-      margin-right: auto; 
+      margin-right: auto;
     }
 
     .navigation li:last-child {
-      margin-left: auto; 
+      margin-left: auto;
     }
 
     .navigation li:nth-last-child(-n+3) {
-      margin-left: 20px; 
+      margin-left: 20px;
     }
 
     .navigation-footer {
@@ -79,16 +81,20 @@
       margin: 0;
       background: black;
     }
-    
-     .navigation-footer a {
+
+    .navigation-footer a {
       text-decoration: none;
       display: block;
       padding: 1em;
       color: white;
     }
     
+    img {
+      width: 100%; 
+      height: auto;
+    }
+    
   </style>
-  
 </head>
 <body>
   <ul class="navigation">
@@ -101,11 +107,11 @@
   <ul class="flex-container">
     <li class="flex-item">
       <h2 style="color: black">About Us</h2>
-      <p style="color: black">We are a company dedicated to deliver excellent services to our client</p>
+      <p style="color: black">We are a company dedicated to deliver excellent services to our clients.</p>
       <img src="1.jpeg">
     </li>
   </ul>
-  
+
   <ul class="flex-container">
       <h2 style="color: black">Our Services</h2>
   </ul>
@@ -113,12 +119,12 @@
   <ul class="flex-container-bottom">
     <li class="flex-item">
       <h2 style="color: black">Web Development</h2>
-      <p style="color: black">We specialize in creating responsive and user-friendly websites</p>
+      <p style="color: black">We specialize in creating responsive and user-friendly websites.</p>
       <img src="2.jpeg">
     </li>
     <li class="flex-item">
       <h2 style="color: black">Graphic Design</h2>
-      <p style="color: black">Our talented designers can bring to life with your stunning visuals</p>
+      <p style="color: black">Our talented designers can bring to life your stunning visuals.</p>
       <img src="3.jpeg">
     </li>
   </ul>
