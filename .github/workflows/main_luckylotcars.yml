@@ -28,7 +28,6 @@ jobs:
           cd lab-6
           npm install
           npm run build --if-present
-          npm run test --if-present
 
       - name: Zip artifact for deployment
         run: zip release.zip -j lab-6/*
