@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Country Information</title>
+ <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ <h1>Country Information</h1>
+ <div id="search-container">
+  <input type="text" id="country-input" placeholder="Enter a country name">
+  <button id="search-button">Get Country Info</button>
+ </div>
+ <div id="main-container">
+  <div id="country-info">
+   <h2 id="country-name">Country Name</h2>
+   <p id="capital"></p>
+   <p id="population"></p>
+   <p id="region"></p>
+   <img id="coat-of-arms" alt="Coat of Arms" style="display: none;">
+  </div>
+  <div id="bordering-countries">
+   <h2>Bordering Countries</h2>
+   <ul id="border-list"></ul>
+  </div>
+ </div>
+ <p id="error-message"></p>
+ <script src="script.js"></script>
+</body>
+</html>
