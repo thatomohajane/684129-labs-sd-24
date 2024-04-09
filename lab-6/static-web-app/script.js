@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const carList = document.getElementById('carList');
     cars = [];
     loadCarsBtn.addEventListener('click', () => {
-        fetch('https://luckylotcars.azurewebsites.net/cars')
+        fetch('https://thatolotcars.azurewebsites.net/cars')
             .then(response => response.json())
             .then(data => {
                 cars = data;
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 function addCar(newCar) {
-    fetch('https://luckylotcars.azurewebsites.net/cars', {
+    fetch('https://thatolotcars.azurewebsites.net/cars', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -60,7 +60,7 @@ carForm.addEventListener('submit', event => {
 // Function to remove a car
 function removeCar(index) {
     const carId = cars[index].id;
-    fetch('https://luckylotcars.azurewebsites.net/cars/${carId}', {
+    fetch('https://thatolotcars.azurewebsites.net/cars/${carId}', {
         method: 'DELETE'
     })
         .then(response => response.json())
