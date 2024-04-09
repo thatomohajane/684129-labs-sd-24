@@ -2,8 +2,6 @@
 const express = require('express');
 const app = express();
 
-
-
 app.use(express.json());
 
 const cars = require('./cars.json');
@@ -44,9 +42,4 @@ app.post('/cars', (req, res) => {
     console.log(newCar);
     cars.push(newCar);
     res.json(newCar);
-});
-
-//start app at localhost:3001
-app.listen(3001, () => {
-    console.log('Server started at http://localhost:3001');
 });
