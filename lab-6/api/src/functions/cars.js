@@ -1,16 +1,29 @@
 const { app } = require('@azure/functions');
-const fs = require('fs').promises; // Import the file system module
 
-let cars; // Declare a variable to store the cars data
-
-// Load cars data from data.json when the script starts
-fs.readFile('./data.json', 'utf8')
-    .then(data => {
-        cars = JSON.parse(data); // Parse JSON data and store it in the cars variable
-    })
-    .catch(err => {
-        console.error('Error reading data.json:', err);
-    });
+// Define the cars data directly within the same file
+const cars = [
+    {
+        "id": 1,
+        "make": "Toyota",
+        "model": "Camry",
+        "year": 2022,
+        "price": 250000
+    },
+    {
+        "id": 2,
+        "make": "Honda",
+        "model": "Accord",
+        "year": 2021,
+        "price": 200000
+    },
+    {
+        "id": 3,
+        "make": "Ford",
+        "model": "Mustang",
+        "year": 2020,
+        "price": 300000
+    }
+];
 
 app.http('cars', {
     methods: ['GET', 'POST'],
@@ -21,8 +34,6 @@ app.http('cars', {
         } else if (req.method === 'POST') {
             const newCar = req.body;
             cars.push(newCar);
-            // Save updated cars data back to data.json (if needed)
-            fs.writeFile('./data.json', JSON.stringify(cars, null, 2), 'utf8');
             return { body: newCar };
         }
     }
@@ -34,21 +45,29 @@ app.http('cars/{id}', {
     handler: async (context, req) => {
         const id = req.params.id;
         if (req.method === 'GET') {
-            const car = cars.find(car => car.id === id);
-            return { body: car };
+            const car = cars.find(car => car.id == id);
+            if (car) {
+                return { body: car };
+            } else {
+                return { status: 404, body: { message: `Car with id ${id} not found` } };
+            }
         } else if (req.method === 'PUT') {
             const updatedCar = req.body;
-            const index = cars.findIndex(car => car.id === id);
-            cars[index] = updatedCar;
-            // Save updated cars data back to data.json (if needed)
-            fs.writeFile('./data.json', JSON.stringify(cars, null, 2), 'utf8');
-            return { body: updatedCar };
+            const index = cars.findIndex(car => car.id == id);
+            if (index !== -1) {
+                cars[index] = updatedCar;
+                return { body: updatedCar };
+            } else {
+                return { status: 404, body: { message: `Car with id ${id} not found` } };
+            }
         } else if (req.method === 'DELETE') {
-            const index = cars.findIndex(car => car.id === id);
-            cars.splice(index, 1);
-            // Save updated cars data back to data.json (if needed)
-            fs.writeFile('./data.json', JSON.stringify(cars, null, 2), 'utf8');
-            return { body: { message: `Car with id ${id} deleted` } };
+            const index = cars.findIndex(car => car.id == id);
+            if (index !== -1) {
+                cars.splice(index, 1);
+                return { body: { message: `Car with id ${id} deleted` } };
+            } else {
+                return { status: 404, body: { message: `Car with id ${id} not found` } };
+            }
         }
     }
 });
