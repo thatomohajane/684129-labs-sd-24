@@ -1,5 +1,5 @@
 const { app } = require('@azure/functions');
-const cars = require('../cars.json');
+const cars = require('./cars.json');
 
 app.http('cars', {
     methods: ['GET', 'POST'],

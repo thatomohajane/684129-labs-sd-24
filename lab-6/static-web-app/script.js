@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const carList = document.getElementById('carList');
     cars = [];
     loadCarsBtn.addEventListener('click', () => {
-        fetch('https://thatolotcars.azurewebsites.net/cars')
+        fetch('https://thatolotcars.azurewebsites.net/api/cars')
             .then(response => response.json())
             .then(data => {
                 cars = data;
@@ -27,8 +27,10 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     });
 });
+
+// Function to add a car
 function addCar(newCar) {
-    fetch('https://thatolotcars.azurewebsites.net/cars', {
+    fetch('https://thatolotcars.azurewebsites.net/api/cars', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -38,7 +40,7 @@ function addCar(newCar) {
         .then(response => response.json())
         .then(data => {
             console.log('Success:', data);
-            //reload cars
+            // reload cars
             // const loadCarsBtn = document.getElementById('loadCarsBtn');
             loadCarsBtn.click();
         })
@@ -60,13 +62,13 @@ carForm.addEventListener('submit', event => {
 // Function to remove a car
 function removeCar(index) {
     const carId = cars[index].id;
-    fetch('https://thatolotcars.azurewebsites.net/cars/${carId}', {
+    fetch('https://thatolotcars.azurewebsites.net/api/cars/${carId}', {
         method: 'DELETE'
     })
         .then(response => response.json())
         .then(data => {
             console.log('Success:', data);
-            //reload cars
+            // reload cars
             // const loadCarsBtn = document.getElementById('loadCarsBtn');
             loadCarsBtn.click();
         })
