@@ -47,7 +47,7 @@ app.http('cars/{id}', {
             const index = cars.findIndex(car => car.id === id);
             cars.splice(index, 1);
             // Save updated cars data back to cars.json (if needed)
-            // fs.writeFile('./cars.json', JSON.stringify(cars, null, 2), 'utf8');
+            fs.writeFile('./cars.json', JSON.stringify(cars, null, 2), 'utf8');
             return { body: { message: `Car with id ${id} deleted` } };
         }
     }
