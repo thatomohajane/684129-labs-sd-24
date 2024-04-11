@@ -22,7 +22,7 @@ app.http('cars', {
             const newCar = req.body;
             cars.push(newCar);
             // Save updated cars data back to cars.json (if needed)
-            // fs.writeFile('./cars.json', JSON.stringify(cars, null, 2), 'utf8');
+            fs.writeFile('./cars.json', JSON.stringify(cars, null, 2), 'utf8');
             return { body: newCar };
         }
     }
