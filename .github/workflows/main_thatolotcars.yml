@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 env:
-  AZURE_FUNCTIONAPP_PACKAGE_PATH: '/lab-6/azure-function-app' # set this to the path to your web app project, defaults to the repository root
+  AZURE_FUNCTIONAPP_PACKAGE_PATH: '/lab-6/api' # set this to the path to your web app project, defaults to the repository root
   NODE_VERSION: '20.x' # set this to the node version to use (supports 8.x, 10.x, 12.x)
 
 jobs:
@@ -28,13 +28,13 @@ jobs:
       - name: 'Resolve Project Dependencies Using Npm'
         shell: bash
         run: |
-          pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
+          pushd './/lab-6/api'
           npm install
           npm run build --if-present
           popd
 
       - name: Zip artifact for deployment
-        run: zip -r release.zip .${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
+        run: zip -r release.zip ./lab-6/api
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
@@ -73,5 +73,5 @@ jobs:
         with:
           app-name: 'thatolotcars'
           slot-name: 'Production'
-          package: .${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
+          package: ./lab-6/api
           
