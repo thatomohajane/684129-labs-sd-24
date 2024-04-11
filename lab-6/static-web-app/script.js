@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const loadCarsBtn = document.getElementById('loadCarsBtn');
     const carList = document.getElementById('carList');
-    cars = [];
     loadCarsBtn.addEventListener('click', () => {
         fetch('https://thatolotcars.azurewebsites.net/api/cars')
             .then(response => response.json())

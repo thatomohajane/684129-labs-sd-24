@@ -1,54 +1,45 @@
-const { app } = require('@azure/functions');
-const fs = require('fs').promises; // Import the file system module
+//create cars api using express
+const express = require('express');
+const app = express();
 
-let cars; // Declare a variable to store the cars data
+app.use(express.json());
 
-// Load cars data from cars.json when the script starts
-fs.readFile('./cars.json', 'utf8')
-    .then(data => {
-        cars = JSON.parse(data); // Parse JSON data and store it in the cars variable
-    })
-    .catch(err => {
-        console.error('Error reading cars.json:', err);
-    });
+const cars = require('./cars.json');
 
-app.http('cars', {
-    methods: ['GET', 'POST'],
-    authLevel: 'anonymous',
-    handler: async (context, req) => {
-        if (req.method === 'GET') {
-            return { body: cars }; // Return the cars data when a GET request is received
-        } else if (req.method === 'POST') {
-            const newCar = req.body;
-            cars.push(newCar);
-            // Save updated cars data back to cars.json (if needed)
-            // fs.writeFile('./cars.json', JSON.stringify(cars, null, 2), 'utf8');
-            return { body: newCar };
-        }
-    }
+//get all cars
+app.get('/cars', (req, res) => {
+    res.json(cars);
 });
 
-app.http('cars/{id}', {
-    methods: ['GET', 'PUT', 'DELETE'],
-    authLevel: 'anonymous',
-    handler: async (context, req) => {
-        const id = req.params.id;
-        if (req.method === 'GET') {
-            const car = cars.find(car => car.id === id);
-            return { body: car };
-        } else if (req.method === 'PUT') {
-            const updatedCar = req.body;
-            const index = cars.findIndex(car => car.id === id);
-            cars[index] = updatedCar;
-            // Save updated cars data back to cars.json (if needed)
-            // fs.writeFile('./cars.json', JSON.stringify(cars, null, 2), 'utf8');
-            return { body: updatedCar };
-        } else if (req.method === 'DELETE') {
-            const index = cars.findIndex(car => car.id === id);
-            cars.splice(index, 1);
-            // Save updated cars data back to cars.json (if needed)
-            // fs.writeFile('./cars.json', JSON.stringify(cars, null, 2), 'utf8');
-            return { body: { message: `Car with id ${id} deleted` } };
-        }
-    }
+//get car by id
+app.get('/cars/:id', (req, res) => {
+    const id = req.params.id;
+    const car = cars.find(car => car.id === id);
+    res.json(car);
 });
+
+//update car
+app.put('/cars/:id', (req, res) => {
+    const id = req.params.id;
+    const updatedCar = req.body;
+    const index = cars.findIndex(car => car.id === id);
+    cars[index] = updatedCar;
+    res.json(updatedCar);
+});
+
+//delete car
+app.delete('/cars/:id', (req, res) => {
+    const id = req.params.id;
+    const index = cars.findIndex(car => car.id === id);
+    cars.splice(index, 1);
+    res.json({ message: `Car with id ${id} deleted` });
+});
+
+//add car
+app.post('/cars', (req, res) => {
+    const newCar = req.body;
+    cars.push(newCar);
+    res.json(newCar);
+});
+
+module.exports = app;
