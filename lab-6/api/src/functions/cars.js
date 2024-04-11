@@ -1,5 +1,7 @@
-//create cars api using express
 const express = require('express');
+const { AzureFunction, HttpRequest } = require('@azure/functions');
+const { createExpressApp } = require('azure-function-express');
+
 const app = express();
 
 app.use(express.json());
@@ -42,4 +44,4 @@ app.post('/cars', (req, res) => {
     res.json(newCar);
 });
 
-module.exports = app;
+module.exports = createExpressApp(app);
